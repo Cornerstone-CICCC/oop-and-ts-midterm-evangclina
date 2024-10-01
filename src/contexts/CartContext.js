@@ -44,7 +44,7 @@ export class CartContext {
     const totalPrice = this.cart.reduce((total, curr) => {
       return total + (curr.newItem.price * curr.qty)
     }, 0)
-    return totalPrice
+    return totalPrice.toLocaleString()
   }
 
   getCart(){

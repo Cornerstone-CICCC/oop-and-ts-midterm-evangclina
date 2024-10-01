@@ -41,8 +41,8 @@ export class CartList extends Component {
 
     if(totalQty === 0){
       this.productListElement.innerHTML = `
-        <img src="../assets/sadcat.png" alt="sad cat">
-        <p>Your cart is empty</p>
+        <img src="../assets/sadbear.png" alt="sad cat">
+        <p>Your cart is currently empty</p>
       `
     }
   }
@@ -53,10 +53,12 @@ export class CartList extends Component {
     cartElement.innerHTML = `
       <h3 id="cart">Your Cart<span> (0)</span></h3>
       <div class="cart-items">
-        <img src="../assets/sadcat.png" alt="sad cat">
-        <p>Your cart is empty</p>
+        <img src="../assets/sadbear.png" alt="sad cat">
+        <p>Your cart is currently empty</p>
       </div>
-      <button>Checkout</button>
+      <div class="checkout-btn-div">
+        <button class="checkout-btn">Checkout</button>
+      </div>
     `
 
     this.productListElement = cartElement.querySelector(".cart-items")

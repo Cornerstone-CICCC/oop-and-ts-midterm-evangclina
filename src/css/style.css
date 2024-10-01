@@ -3,11 +3,10 @@
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
-
 body{
     background-color: #f8f9fa;
     margin: 0; 
-    padding: 0 10px;
+    padding: 0 15px;
 }
 main{
     position: relative;
@@ -17,8 +16,8 @@ main{
     right: 10px;
     bottom: 10px;
     border: none;
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     border-radius: 50%;
     background-color: rgb(213, 202, 190);
     display: flex;
@@ -26,22 +25,30 @@ main{
     justify-content: center;
     display: none;
 }
+.up-btn:hover{
+    cursor: pointer;
+}
 .up-btn svg{
     fill: rgb(85, 81, 70);
 }
-
-/* Header */
-.logo img{
-    max-width: 100px;
+.content{
+    margin: auto;
+    max-width: 1440px;
 }
 
+/* Header */
+header{
+    padding-top: 5px;
+}
+.logo img{
+    max-width: 120px;
+}
 .header nav{
     display: flex; 
     align-items: center;
     justify-content: space-between;
     max-height: 50px;
 }
-
 .cart-logo{
     background-color: #607fc6;
     border-radius: 50%;
@@ -53,7 +60,6 @@ main{
     margin: auto;
     fill: #eff4f8;
 }
-
 
 /* Product Items */
 .content{
@@ -67,7 +73,6 @@ main{
     margin: auto;
     grid-auto-rows: 400px;
 }
-
 .product{
     font-family: "Nunito", sans-serif;
     margin: 0 0 30px 0;
@@ -106,48 +111,102 @@ main{
     border-radius: 10px;
 }
 
-.description{
-    position: absolute;
-    top:0;
-    width: 150px;
-    height: 0;
-    border-radius: 10px;
-    background-color: rgba(96, 127, 198, 0.90);
-    transition: all .5s ease-in-out;
-    opacity: 0;
-    height: 250px;
-    overflow-y: auto;
-    /* text-overflow: ellipsis " [..]"; */
-
-}
-
-.description p{
-    margin: 0;
-    font-size: 12px;
-    padding: 10px;
-}
-
-.description::-webkit-scrollbar{
+/* MODAAAAL */
+.overlay{
+    z-index: 200;
+    position: fixed;
+    top: 0;
+    left: 0;
     display: none;
+    place-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,.8);
 }
-
-.add-btn{
-    background-color: #607fc6;
+.modal {
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 350px;
+    width: 100%;
+    padding: 2rem;
+    background-color: #ffffff;
+    text-align: justify;
     border-radius: 10px;
-    border: none;
-    height: 25px;
-    width: 100px;
-    color: #eff4f8;
-    transition: all .5s ease-in-out;
+    position: relative;
+    overflow-y: initial;
 }
-
+.modal img{
+    display: block;
+    max-width: 200px;
+    border-radius: 8px;
+    margin: auto;
+}
+.modal-info{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.modal-info h5{
+    margin: 12px 0 5px 0;
+}
+.title, .price{
+    text-align: center;
+}
+.price{
+    margin-top: 10px;
+}
+.description{
+    margin: 0 0 15px 0;
+    font-size: 12px;
+}
+.rating{
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+.rating svg{
+    width: 15px;
+    margin-right: 5px;
+}
+.close-btn{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    height: 30px;
+    width: 30px;
+    background-color: rgb(213, 202, 190);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .3s linear;
+}
+.close-btn:hover{
+    cursor: pointer;
+}
+.close-btn svg{
+    fill: rgb(85, 81, 70);
+}
+.add-btn{
+    height: 35px;
+    width: 100%;
+    background-color: rgb(213, 202, 190);
+    border: none;
+    border-radius: 5px;
+    color: rgb(85, 81, 70);
+    transition: all .3s ease-in-out;
+}
 .add-btn:hover{
     cursor: pointer;
-    background-color: #eff4f8;
-    color: #607fc6;
 }
-/* cart! */
 
+.add-btn:active{
+    height: 33px;
+}
+
+/* CAAAAARTTTTTT */
 .cart{
     background-color: #fff;
     border-radius: 20px;
@@ -156,40 +215,124 @@ main{
 }
 .cart li{
     list-style: none;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
 }
-
 .item-price{
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: space-between;
+    gap: 5px;
 }
-
 .cart-items img{
     max-width: 200px;
 }
-
-
-
+.cart-items{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.checkout-btn-div{
+    margin-top:  20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.checkout-btn{
+    width: 150px;
+    height: 40px;
+    background-color: #607fc6;
+    border-radius: 10px;
+    border: none;
+    color: #eff4f8;
+    transition: all .5s ease-in-out;
+    font-size: 16px;
+    
+}
+.checkout-btn:hover{
+    cursor: pointer;
+    border: 1px solid #607fc6;
+    background-color: #eff4f8;
+    color: #607fc6;
+}
+.delete{
+    display: flex;
+    align-self: center;
+}
+.delete-btn{
+    border: none;
+    background-color: transparent;
+}
+.delete-btn svg{
+    fill: rgb(85, 81, 70);
+}
+.delete:hover{
+    cursor: pointer;
+}
+.item-price p {
+    margin: 0;
+}
 
 /* footer */
 .footer{
+    margin-top: 30px;
+    font-size: 14px;
     font-family: "Nunito", sans-serif;
     text-align: center;
 }
 
 /* For bigger screens  */
+@media only screen and (min-width: 768px){
+    .product-list{
+        grid-template-columns: repeat(3,1fr);
+        gap: 20px;
+    }
+}
 @media only screen and (min-width: 1200px){
+    body{
+        padding: 0 40px;
+    }
+    nav{
+        padding-left: 20px;
+    }
     main{
         display: flex;
         flex-direction: row-reverse;
-        gap:20px;
+        gap: 40px;
+        align-items: center;
+        justify-content: space-between;
     }
-
-
 
     /* cart */
     .cart{
         align-self: start;
-        width: 600px;
+        max-width: 500px;
+    }
+    .cart li{
+        gap: 80px;
+    }
+
+    /* MODAAAAL */
+    .modal{
+        max-width: 600px;
+        display: flex;
+        gap: 50px;
+        flex-direction: row;
+    }
+
+    .title, .price{
+        text-align: start;
+    }
+    .modal-info{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0;
+    }
+    .item-price{
+        width: 200px;
     }
 } 
